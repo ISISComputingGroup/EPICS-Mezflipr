@@ -1,0 +1,54 @@
+record(ai, "$(P)$(NAME):COMPENSATION") {
+    field(INP, "@Mezflipr.proto getCompensation($(CODE)) $(PORT)")
+    field(SCAN, "2 second")
+    field(DTYP, "stream")
+}
+
+record(ao, "$(P)$(NAME):COMPENSATION:SP") {
+    field(OUT, "@Mezflipr.proto setCompensation($(CODE)) $(PORT)")
+    field(DTYP, "stream")
+}
+
+record(ai, "$(P)$(NAME):AMPLITUDE") {
+    field(INP, "@Mezflipr.proto getAmplitude($(CODE)) $(PORT)")
+    field(SCAN, "2 second")
+    field(DTYP, "stream")
+}
+
+record(ao, "$(P)$(NAME):AMPLITUDE:SP") {
+    field(OUT, "@Mezflipr.proto setAmplitude($(CODE)) $(PORT)")
+    field(DTYP, "stream")
+}
+
+record(ai, "$(P)$(NAME):CONSTANT") {
+    field(INP, "@Mezflipr.proto getConst($(CODE)) $(PORT)")
+    field(SCAN, "2 second")
+    field(DTYP, "stream")
+}
+
+record(ao, "$(P)$(NAME):CONSTANT:SP") {
+    field(OUT, "@Mezflipr.proto setConst($(CODE)) $(PORT)")
+    field(DTYP, "stream")
+}
+
+record(ai, "$(P)$(NAME):DT") {
+    field(INP, "@Mezflipr.proto getDt($(CODE)) $(PORT)")
+    field(SCAN, "2 second")
+    field(DTYP, "stream")
+}
+
+record(ao, "$(P)$(NAME):DT:SP") {
+    field(OUT, "@Mezflipr.proto setDt($(CODE)) $(PORT)")
+    field(DTYP, "stream")
+}
+
+record(stringin, "$(P)$(NAME):FILENAME") {
+    field(INP, "@Mezflipr.proto getFile($(CODE)) $(PORT)")
+    field(SCAN, "2 second")
+    field(DTYP, "stream")
+}
+
+record(stringout, "$(P)$(NAME):FILENAME:SP") {
+    field(OUT, "@Mezflipr.proto setFile($(CODE)) $(PORT)")
+    field(DTYP, "stream")
+}

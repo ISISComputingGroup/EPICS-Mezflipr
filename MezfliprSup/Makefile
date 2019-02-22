@@ -3,7 +3,8 @@ include $(TOP)/configure/CONFIG
 #=======================================
 
 # Install .dbd and .db files
-DB += Mezflipr.db
+DB += Mezflipr_single.db
+DB += Mezflipr_common.db
 DATA += Mezflipr.proto
 
 #=======================================

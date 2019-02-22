@@ -1,4 +1,69 @@
+OutTerminator = "";
+InTerminator = ":";
+
 getIDN {
     out "*IDN?";
     in "%#s";
+}
+
+getCompensation {
+    out "comp_\$1?";
+    in "comp_\$1 %f";
+}
+
+setCompensation {
+    out "comp_\$1 %f";
+    in "comp_\$1";
+}
+
+getAmplitude {
+    out "amp_\$1?";
+    in "amp_\$1 %f"
+}
+
+setAmplitude {
+    out "amp_\$1 %f";
+    in "amp_\$1";
+}
+
+getConst {
+    out "const_\$1?";
+    in "const_\$1 %f";
+}
+
+setConst {
+    out "const_\$1 %f";
+    in "const_\$1";
+}
+
+getDt {
+    out "dt_\$1?";
+    in "dt_\$1 %f";
+}
+
+setDt {
+    out "dt_\$1 %f";
+    in "dt_\$1";
+}
+
+getFile {
+    InTerminator = "";
+    ReadTimeout = 250;
+    out "file_\$1?";
+    in "file_\$1 %.1/(.*):/";
+}
+
+setFile {
+    out "file_\$1 %s";
+    in "file_\$1";
+}
+
+getToggle {
+    out "toggle?";
+    in "toggle %i";
+}
+
+setToggle {
+    out "toggle %i";
+    in "toggle%*i";
 }
