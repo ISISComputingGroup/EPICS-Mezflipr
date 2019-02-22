@@ -1,54 +1,84 @@
 record(ai, "$(P)$(NAME):COMPENSATION") {
+    field(DESC, "$(NAME) Compensation")
     field(INP, "@Mezflipr.proto getCompensation($(CODE)) $(PORT)")
-    field(SCAN, "2 second")
+    field(SCAN, "1 second")
     field(DTYP, "stream")
+    field(PREC, "2")
+    info(interest, "HIGH")
+    info(archive, "VAL")
 }
 
 record(ao, "$(P)$(NAME):COMPENSATION:SP") {
+    field(DESC, "$(NAME) Compensation SP")
     field(OUT, "@Mezflipr.proto setCompensation($(CODE)) $(PORT)")
     field(DTYP, "stream")
+    field(PREC, "2")
 }
 
 record(ai, "$(P)$(NAME):AMPLITUDE") {
+    field(DESC, "$(NAME) Amplitude")
     field(INP, "@Mezflipr.proto getAmplitude($(CODE)) $(PORT)")
-    field(SCAN, "2 second")
+    field(SCAN, "1 second")
     field(DTYP, "stream")
+    field(PREC, "2")
+    info(interest, "HIGH")
+    info(archive, "VAL")
 }
 
 record(ao, "$(P)$(NAME):AMPLITUDE:SP") {
+    field(DESC, "$(NAME) Amplitude SP")
     field(OUT, "@Mezflipr.proto setAmplitude($(CODE)) $(PORT)")
     field(DTYP, "stream")
+    field(PREC, "2")
 }
 
 record(ai, "$(P)$(NAME):CONSTANT") {
+    field(DESC, "$(NAME) Constant")
     field(INP, "@Mezflipr.proto getConst($(CODE)) $(PORT)")
-    field(SCAN, "2 second")
+    field(SCAN, "1 second")
     field(DTYP, "stream")
+    field(PREC, "2")
+    info(interest, "HIGH")
+    info(archive, "VAL")
 }
 
 record(ao, "$(P)$(NAME):CONSTANT:SP") {
+    field(DESC, "$(NAME) Constant SP")
     field(OUT, "@Mezflipr.proto setConst($(CODE)) $(PORT)")
     field(DTYP, "stream")
+    field(PREC, "2")
 }
 
 record(ai, "$(P)$(NAME):DT") {
+    field(DESC, "$(NAME) Delta T")
     field(INP, "@Mezflipr.proto getDt($(CODE)) $(PORT)")
-    field(SCAN, "2 second")
+    field(SCAN, "1 second")
     field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "us")
+    info(interest, "HIGH")
+    info(archive, "VAL")
 }
 
 record(ao, "$(P)$(NAME):DT:SP") {
+    field(DESC, "$(NAME) Delta T SP")
     field(OUT, "@Mezflipr.proto setDt($(CODE)) $(PORT)")
     field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "us")
 }
 
 record(stringin, "$(P)$(NAME):FILENAME") {
+    field(DESC, "$(NAME) Filename")
     field(INP, "@Mezflipr.proto getFile($(CODE)) $(PORT)")
-    field(SCAN, "2 second")
+    field(SCAN, "1 second")
     field(DTYP, "stream")
+    info(interest, "HIGH")
+    info(archive, "VAL")
 }
 
 record(stringout, "$(P)$(NAME):FILENAME:SP") {
+    field(DESC, "$(NAME) Filename SP")
     field(OUT, "@Mezflipr.proto setFile($(CODE)) $(PORT)")
     field(DTYP, "stream")
 }
