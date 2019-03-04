@@ -6,6 +6,10 @@ record(ai, "$(P)$(NAME):COMPENSATION") {
     field(PREC, "2")
     info(interest, "HIGH")
     info(archive, "VAL")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:COMPENSATION")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ao, "$(P)$(NAME):COMPENSATION:SP") {
@@ -13,6 +17,10 @@ record(ao, "$(P)$(NAME):COMPENSATION:SP") {
     field(OUT, "@Mezflipr.proto setCompensation($(CODE)) $(PORT)")
     field(DTYP, "stream")
     field(PREC, "2")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:COMPENSATION:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ai, "$(P)$(NAME):AMPLITUDE") {
@@ -23,6 +31,10 @@ record(ai, "$(P)$(NAME):AMPLITUDE") {
     field(PREC, "2")
     info(interest, "HIGH")
     info(archive, "VAL")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:AMPLITUDE")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ao, "$(P)$(NAME):AMPLITUDE:SP") {
@@ -30,6 +42,10 @@ record(ao, "$(P)$(NAME):AMPLITUDE:SP") {
     field(OUT, "@Mezflipr.proto setAmplitude($(CODE)) $(PORT)")
     field(DTYP, "stream")
     field(PREC, "2")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:AMPLITUDE:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ai, "$(P)$(NAME):CONSTANT") {
@@ -40,6 +56,10 @@ record(ai, "$(P)$(NAME):CONSTANT") {
     field(PREC, "2")
     info(interest, "HIGH")
     info(archive, "VAL")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:CONSTANT")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ao, "$(P)$(NAME):CONSTANT:SP") {
@@ -47,6 +67,10 @@ record(ao, "$(P)$(NAME):CONSTANT:SP") {
     field(OUT, "@Mezflipr.proto setConst($(CODE)) $(PORT)")
     field(DTYP, "stream")
     field(PREC, "2")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:CONSTANT:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ai, "$(P)$(NAME):DT") {
@@ -58,6 +82,10 @@ record(ai, "$(P)$(NAME):DT") {
     field(EGU, "us")
     info(interest, "HIGH")
     info(archive, "VAL")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:DT")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(ao, "$(P)$(NAME):DT:SP") {
@@ -66,6 +94,10 @@ record(ao, "$(P)$(NAME):DT:SP") {
     field(DTYP, "stream")
     field(PREC, "2")
     field(EGU, "us")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:DT:SP")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(stringin, "$(P)$(NAME):FILENAME") {
@@ -75,10 +107,34 @@ record(stringin, "$(P)$(NAME):FILENAME") {
     field(DTYP, "stream")
     info(interest, "HIGH")
     info(archive, "VAL")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:FILENAME")
+    field(SDIS, "$(P)DISABLE")
 }
 
 record(stringout, "$(P)$(NAME):FILENAME:SP") {
     field(DESC, "$(NAME) Filename SP")
     field(OUT, "@Mezflipr.proto setFile($(CODE)) $(PORT)")
     field(DTYP, "stream")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:FILENAME:SP")
+    field(SDIS, "$(P)DISABLE")
 }
+
+
+record(ao, "$(P)SIM:COMPENSATION") {}
+alias("$(P)SIM:COMPENSATION", "$(P)SIM:COMPENSATION:SP")
+
+record(ao, "$(P)SIM:AMPLITUDE") {}
+alias("$(P)SIM:AMPLITUDE", "$(P)SIM:AMPLITUDE:SP")
+
+record(ao, "$(P)SIM:CONSTANT") {}
+alias("$(P)SIM:CONSTANT", "$(P)SIM:CONSTANT:SP")
+
+record(ao, "$(P)SIM:DT") {}
+alias("$(P)SIM:DT", "$(P)SIM:DT:SP")
+
+record(stringout, "$(P)SIM:FILENAME") {}
+alias("$(P)SIM:FILENAME", "$(P)SIM:FILENAME:SP")
