@@ -1,0 +1,77 @@
+record(bo, "$(P)SIM")
+{
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+    field(ZNAM, "NO")
+    field(ONAM, "YES")
+    field(VAL, "$(RECSIM=0)")
+    field(PINI, "YES")
+}
+    
+record(bo, "$(P)DISABLE") 
+{
+    field(DESC, "Disable comms")
+    field(PINI, "YES")
+    field(VAL, "$(DISABLE=0)")
+    field(OMSL, "supervisory")
+    field(ZNAM, "COMMS ENABLED")
+    field(ONAM, "COMMS DISABLED")
+}
+
+record(stringin, "$(P)ID")
+{
+    field(DESC, "Device ID")
+    field(DTYP, "stream")
+    field(INP,  "@Mezflipr.proto getIDN $(PORT)")
+    field(SCAN, "10 second")
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:ID")
+    field(SDIS, "$(P)DISABLE")
+}
+
+record(mbbi, "$(P)TOGGLE") {
+    field(DESC, "Toggle flipper state")
+    field(ZRST, "Analyser Off Pol. Off")
+    field(ONST, "Analyser Off Pol. On")
+    field(TWST, "Analyser On Pol. Off")
+    field(THST, "Analyser On Pol. On")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(THVL, "3")
+    field(DTYP, "stream")
+    field(INP, "@Mezflipr.proto getToggle $(PORT)")
+    field(SCAN, "2 second")
+    
+    info(interest, "HIGH")
+    info(archive, "VAL")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:TOGGLE")
+    field(SDIS, "$(P)DISABLE")
+}
+
+record(mbbo, "$(P)TOGGLE:SP") {
+    field(ZRST, "Analyser Off Pol. Off")
+    field(ONST, "Analyser Off Pol. On")
+    field(TWST, "Analyser On Pol. Off")
+    field(THST, "Analyser On Pol. On")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(THVL, "3")
+    field(DTYP, "stream")
+    field(OUT, "@Mezflipr.proto setToggle $(PORT)")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)SIM:TOGGLE:SP")
+    field(SDIS, "$(P)DISABLE")
+}
+
+record(stringout, "$(P)SIM:ID") {
+    field("VAL", "recsim flipper")
+    field("PINI", "YES")
+}
+
+record(mbbo, "$(P)SIM:TOGGLE") {}
+alias("$(P)SIM:TOGGLE", "$(P)SIM:TOGGLE:SP")
