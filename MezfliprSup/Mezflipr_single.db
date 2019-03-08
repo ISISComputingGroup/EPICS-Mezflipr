@@ -8,7 +8,7 @@ record(ai, "$(P)$(NAME):COMPENSATION") {
     info(archive, "VAL")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:COMPENSATION")
+    field(SIOL, "$(P)$(NAME):SIM:COMPENSATION")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -19,7 +19,7 @@ record(ao, "$(P)$(NAME):COMPENSATION:SP") {
     field(PREC, "2")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:COMPENSATION:SP")
+    field(SIOL, "$(P)$(NAME):SIM:COMPENSATION:SP")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -33,7 +33,7 @@ record(ai, "$(P)$(NAME):AMPLITUDE") {
     info(archive, "VAL")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:AMPLITUDE")
+    field(SIOL, "$(P)$(NAME):SIM:AMPLITUDE")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -44,7 +44,7 @@ record(ao, "$(P)$(NAME):AMPLITUDE:SP") {
     field(PREC, "2")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:AMPLITUDE:SP")
+    field(SIOL, "$(P)$(NAME):SIM:AMPLITUDE:SP")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -58,7 +58,7 @@ record(ai, "$(P)$(NAME):CONSTANT") {
     info(archive, "VAL")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:CONSTANT")
+    field(SIOL, "$(P)$(NAME):SIM:CONSTANT")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -69,7 +69,7 @@ record(ao, "$(P)$(NAME):CONSTANT:SP") {
     field(PREC, "2")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:CONSTANT:SP")
+    field(SIOL, "$(P)$(NAME):SIM:CONSTANT:SP")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -84,7 +84,7 @@ record(ai, "$(P)$(NAME):DT") {
     info(archive, "VAL")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:DT")
+    field(SIOL, "$(P)$(NAME):SIM:DT")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -96,7 +96,7 @@ record(ao, "$(P)$(NAME):DT:SP") {
     field(EGU, "us")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:DT:SP")
+    field(SIOL, "$(P)$(NAME):SIM:DT:SP")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -109,7 +109,7 @@ record(stringin, "$(P)$(NAME):FILENAME") {
     info(archive, "VAL")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:FILENAME")
+    field(SIOL, "$(P)$(NAME):SIM:FILENAME")
     field(SDIS, "$(P)DISABLE")
 }
 
@@ -119,22 +119,22 @@ record(stringout, "$(P)$(NAME):FILENAME:SP") {
     field(DTYP, "stream")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)SIM:FILENAME:SP")
+    field(SIOL, "$(P)$(NAME):SIM:FILENAME:SP")
     field(SDIS, "$(P)DISABLE")
 }
 
 
-record(ao, "$(P)SIM:COMPENSATION") {}
-alias("$(P)SIM:COMPENSATION", "$(P)SIM:COMPENSATION:SP")
+record(ao, "$(P)$(NAME):SIM:COMPENSATION") {}
+alias("$(P)$(NAME):SIM:COMPENSATION", "$(P)$(NAME):SIM:COMPENSATION:SP")
 
-record(ao, "$(P)SIM:AMPLITUDE") {}
-alias("$(P)SIM:AMPLITUDE", "$(P)SIM:AMPLITUDE:SP")
+record(ao, "$(P)$(NAME):SIM:AMPLITUDE") {}
+alias("$(P)$(NAME):SIM:AMPLITUDE", "$(P)$(NAME):SIM:AMPLITUDE:SP")
 
-record(ao, "$(P)SIM:CONSTANT") {}
-alias("$(P)SIM:CONSTANT", "$(P)SIM:CONSTANT:SP")
+record(ao, "$(P)$(NAME):SIM:CONSTANT") {}
+alias("$(P)$(NAME):SIM:CONSTANT", "$(P)$(NAME):SIM:CONSTANT:SP")
 
-record(ao, "$(P)SIM:DT") {}
-alias("$(P)SIM:DT", "$(P)SIM:DT:SP")
+record(ao, "$(P)$(NAME):SIM:DT") {}
+alias("$(P)$(NAME):SIM:DT", "$(P)$(NAME):SIM:DT:SP")
 
-record(stringout, "$(P)SIM:FILENAME") {}
-alias("$(P)SIM:FILENAME", "$(P)SIM:FILENAME:SP")
+record(stringout, "$(P)$(NAME):SIM:FILENAME") {}
+alias("$(P)$(NAME):SIM:FILENAME", "$(P)$(NAME):SIM:FILENAME:SP")
