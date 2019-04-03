@@ -35,6 +35,11 @@ record(ai, "$(P)$(NAME):AMPLITUDE") {
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:AMPLITUDE")
     field(SDIS, "$(P)DISABLE")
+    
+    field(HIHI, "3")
+    field(LOLO, "-3")
+    field(HHSV, "MAJOR")
+    field(LLSV, "MAJOR")
 }
 
 record(ao, "$(P)$(NAME):AMPLITUDE:SP") {
@@ -42,6 +47,9 @@ record(ao, "$(P)$(NAME):AMPLITUDE:SP") {
     field(OUT, "@Mezflipr.proto setAmplitude($(CODE)) $(PORT)")
     field(DTYP, "stream")
     field(PREC, "2")
+    
+    field(DRVH, "3")
+    field(DRVL, "-3")
     
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:AMPLITUDE:SP")
@@ -86,6 +94,9 @@ record(ai, "$(P)$(NAME):DT") {
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:DT")
     field(SDIS, "$(P)DISABLE")
+    
+    field(HIHI, "0.0000000001")
+    field(HHSV, "MAJOR")
 }
 
 record(ao, "$(P)$(NAME):DT:SP") {
@@ -98,6 +109,9 @@ record(ao, "$(P)$(NAME):DT:SP") {
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:DT:SP")
     field(SDIS, "$(P)DISABLE")
+    
+    field(DRVH, "0")
+    field(DRVL, "-99999999999")
 }
 
 record(stringin, "$(P)$(NAME):FILENAME") {
