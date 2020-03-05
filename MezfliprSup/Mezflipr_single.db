@@ -1,9 +1,10 @@
 record(ai, "$(P)$(NAME):COMPENSATION") {
     field(DESC, "$(NAME) Compensation")
-    field(INP, "@Mezflipr.proto getCompensation($(CODE)) $(PORT)")
+    field(INP, "@Mezflipr.proto getCompensation $(PORT)")
     field(SCAN, "1 second")
     field(DTYP, "stream")
     field(PREC, "2")
+    field(EGU, "A")
     info(interest, "HIGH")
     info(archive, "VAL")
     
@@ -14,141 +15,160 @@ record(ai, "$(P)$(NAME):COMPENSATION") {
 
 record(ao, "$(P)$(NAME):COMPENSATION:SP") {
     field(DESC, "$(NAME) Compensation SP")
-    field(OUT, "@Mezflipr.proto setCompensation($(CODE)) $(PORT)")
+    field(OUT, "@Mezflipr.proto setCompensation $(PORT)")
     field(DTYP, "stream")
     field(PREC, "2")
+    field(EGU, "A")
     
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:COMPENSATION:SP")
     field(SDIS, "$(P)DISABLE")
 }
 
-record(ai, "$(P)$(NAME):AMPLITUDE") {
-    field(DESC, "$(NAME) Amplitude")
-    field(INP, "@Mezflipr.proto getAmplitude($(CODE)) $(PORT)")
+record(bi, "$(P)$(NAME):POWER") {
+    field(DESC, "$(NAME) on/off")
+    field(INP, "@Mezflipr.proto getPower $(PORT)")
     field(SCAN, "1 second")
     field(DTYP, "stream")
-    field(PREC, "2")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
     info(interest, "HIGH")
     info(archive, "VAL")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)$(NAME):SIM:AMPLITUDE")
+    field(SIOL, "$(P)$(NAME):SIM:POWER")
     field(SDIS, "$(P)DISABLE")
-    
-    field(HIHI, "3")
-    field(LOLO, "-3")
-    field(HHSV, "MAJOR")
-    field(LLSV, "MAJOR")
 }
 
-record(ao, "$(P)$(NAME):AMPLITUDE:SP") {
-    field(DESC, "$(NAME) Amplitude SP")
-    field(OUT, "@Mezflipr.proto setAmplitude($(CODE)) $(PORT)")
+record(bo, "$(P)$(NAME):POWER:SP") {
+    field(DESC, "$(NAME) on/off")
+    field(OUT, "@Mezflipr.proto setPower $(PORT)")
     field(DTYP, "stream")
-    field(PREC, "2")
-    
-    field(DRVH, "3")
-    field(DRVL, "-3")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
     
     field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)$(NAME):SIM:AMPLITUDE:SP")
+    field(SIOL, "$(P)$(NAME):SIM:POWER:SP")
     field(SDIS, "$(P)DISABLE")
 }
 
-record(ai, "$(P)$(NAME):CONSTANT") {
-    field(DESC, "$(NAME) Constant")
-    field(INP, "@Mezflipr.proto getConst($(CODE)) $(PORT)")
-    field(SCAN, "1 second")
-    field(DTYP, "stream")
-    field(PREC, "2")
-    info(interest, "HIGH")
-    info(archive, "VAL")
-    
-    field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)$(NAME):SIM:CONSTANT")
-    field(SDIS, "$(P)DISABLE")
-}
-
-record(ao, "$(P)$(NAME):CONSTANT:SP") {
-    field(DESC, "$(NAME) Constant SP")
-    field(OUT, "@Mezflipr.proto setConst($(CODE)) $(PORT)")
-    field(DTYP, "stream")
-    field(PREC, "2")
-    
-    field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)$(NAME):SIM:CONSTANT:SP")
-    field(SDIS, "$(P)DISABLE")
-}
-
-record(ai, "$(P)$(NAME):DT") {
-    field(DESC, "$(NAME) Delta T")
-    field(INP, "@Mezflipr.proto getDt($(CODE)) $(PORT)")
-    field(SCAN, "1 second")
-    field(DTYP, "stream")
-    field(PREC, "2")
-    field(EGU, "us")
-    info(interest, "HIGH")
-    info(archive, "VAL")
-    
-    field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)$(NAME):SIM:DT")
-    field(SDIS, "$(P)DISABLE")
-    
-    field(HIHI, "0.0000000001")
-    field(HHSV, "MAJOR")
-}
-
-record(ao, "$(P)$(NAME):DT:SP") {
-    field(DESC, "$(NAME) Delta T SP")
-    field(OUT, "@Mezflipr.proto setDt($(CODE)) $(PORT)")
-    field(DTYP, "stream")
-    field(PREC, "2")
-    field(EGU, "us")
-    
-    field(SIML, "$(P)SIM")
-    field(SIOL, "$(P)$(NAME):SIM:DT:SP")
-    field(SDIS, "$(P)DISABLE")
-    
-    field(DRVH, "0")
-    field(DRVL, "-99999999999")
-}
-
-record(stringin, "$(P)$(NAME):FILENAME") {
-    field(DESC, "$(NAME) Filename")
-    field(INP, "@Mezflipr.proto getFile($(CODE)) $(PORT)")
+record(waveform, "$(P)$(NAME):PARAMS") {
+    field(DESC, "$(NAME) Parameters")
+    field(INP, "@Mezflipr.proto getParams $(PORT)")
     field(SCAN, "1 second")
     field(DTYP, "stream")
     info(interest, "HIGH")
     info(archive, "VAL")
+    
+    field(FTVL, "CHAR")
+    field(NELM, "1024")
     
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:FILENAME")
     field(SDIS, "$(P)DISABLE")
 }
 
-record(stringout, "$(P)$(NAME):FILENAME:SP") {
-    field(DESC, "$(NAME) Filename SP")
-    field(OUT, "@Mezflipr.proto setFile($(CODE)) $(PORT)")
+record(mbbi, "$(P)$(NAME):MODE") {
+    field(DESC, "$(NAME) Mode")
+    field(INP, "@Mezflipr.proto getMode $(PORT)")
+    field(SCAN, "1 second")
     field(DTYP, "stream")
+    info(interest, "HIGH")
+    info(archive, "VAL")
+    
+    field(ZRST, "static")
+    field(ONST, "steps")
+    field(TWST, "analytical")
+    field(THST, "file")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)$(NAME):SIM:MODE")
+    field(SDIS, "$(P)DISABLE")
+}
+
+record(ao, "$(P)$(NAME):CURRENT:SP") {
+    field(DESC, "$(NAME) Current SP")
+    field(OUT, "@Mezflipr.proto setCurrent $(PORT)")
+    field(DTYP, "stream")
+    field(PREC, "2")
+    field(EGU, "A")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)$(NAME):SIM:CURRENT:SP")
+    field(SDIS, "$(P)DISABLE")
+}
+
+record(waveform, "$(P)$(NAME):CURRENT_STEPS:SP") {
+    field(DESC, "$(NAME) Current steps SP")
+    
+    field(FTVL, "CHAR")
+    field(NELM, "1024")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)$(NAME):SIM:CURRENT_STEPS:SP")
+    field(SDIS, "$(P)DISABLE")
+    
+    field(FLNK, "$(P)$(NAME):CURRENT_STEPS:SP:_SEND")
+}
+
+record(bo, "$(P)$(NAME):CURRENT_STEPS:SP:_SEND") {
+    field(OUT, "@Mezflipr.proto setCurrentSteps($(P)$(NAME)) $(PORT)")
+    field(DTYP, "stream")
+}
+
+record(waveform, "$(P)$(NAME):CURRENT_ANALYTICAL:SP") {
+    field(DESC, "$(NAME) Current steps SP")
+    
+    field(FTVL, "CHAR")
+    field(NELM, "1024")
+    
+    field(SIML, "$(P)SIM")
+    field(SIOL, "$(P)$(NAME):SIM:CURRENT_ANALYTICAL:SP")
+    field(SDIS, "$(P)DISABLE")
+    field(FLNK, "$(P)$(NAME):CURRENT_ANALYTICAL:SP:_SEND")
+}
+
+record(bo, "$(P)$(NAME):CURRENT_ANALYTICAL:SP:_SEND") {
+    field(OUT, "@Mezflipr.proto setCurrentAnalytical($(P)$(NAME)) $(PORT)")
+    field(DTYP, "stream")
+}
+
+record(waveform, "$(P)$(NAME):FILENAME:SP") {
+    field(DESC, "$(NAME) Filename SP")
+    
+    field(FTVL, "CHAR")
+    field(NELM, "1024")
     
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:FILENAME:SP")
     field(SDIS, "$(P)DISABLE")
+    
+    field(FLNK, "$(P)$(NAME):FILENAME:SP:_SEND")
+}
+
+record(bo, "$(P)$(NAME):FILENAME:SP:_SEND") {
+    field(OUT, "@Mezflipr.proto setFile($(P)$(NAME)) $(PORT)")
+    field(DTYP, "stream")
 }
 
 
 record(ao, "$(P)$(NAME):SIM:COMPENSATION") {}
 alias("$(P)$(NAME):SIM:COMPENSATION", "$(P)$(NAME):SIM:COMPENSATION:SP")
 
-record(ao, "$(P)$(NAME):SIM:AMPLITUDE") {}
-alias("$(P)$(NAME):SIM:AMPLITUDE", "$(P)$(NAME):SIM:AMPLITUDE:SP")
+record(bo, "$(P)$(NAME):SIM:POWER") {}
+alias("$(P)$(NAME):SIM:POWER", "$(P)$(NAME):SIM:POWER:SP")
 
-record(ao, "$(P)$(NAME):SIM:CONSTANT") {}
-alias("$(P)$(NAME):SIM:CONSTANT", "$(P)$(NAME):SIM:CONSTANT:SP")
+record(mbbo, "$(P)$(NAME):SIM:MODE") {}
+alias("$(P)$(NAME):SIM:MODE", "$(P)$(NAME):SIM:MODE:SP")
 
-record(ao, "$(P)$(NAME):SIM:DT") {}
-alias("$(P)$(NAME):SIM:DT", "$(P)$(NAME):SIM:DT:SP")
+record(ao, "$(P)$(NAME):SIM:CURRENT") {}
+alias("$(P)$(NAME):SIM:CURRENT", "$(P)$(NAME):SIM:CURRENT:SP")
 
-record(stringout, "$(P)$(NAME):SIM:FILENAME") {}
+record(lso, "$(P)$(NAME):SIM:CURRENT_STEPS") {}
+alias("$(P)$(NAME):SIM:CURRENT_STEPS", "$(P)$(NAME):SIM:CURRENT_STEPS:SP")
+
+record(lso, "$(P)$(NAME):SIM:CURRENT_ANALYTICAL") {}
+alias("$(P)$(NAME):SIM:CURRENT_ANALYTICAL", "$(P)$(NAME):SIM:CURRENT_ANALYTICAL:SP")
+
+record(lso, "$(P)$(NAME):SIM:FILENAME") {}
 alias("$(P)$(NAME):SIM:FILENAME", "$(P)$(NAME):SIM:FILENAME:SP")
