@@ -1,69 +1,51 @@
-OutTerminator = "";
-InTerminator = ":";
-
-getIDN {
-    out "*IDN?";
-    in "%#s";
-}
+Terminator = LF;
 
 getCompensation {
-    out "comp_\$1?";
-    in "comp_\$1 %f";
+    out "compensation_current?";
+    in "%f";
 }
 
 setCompensation {
-    out "comp_\$1 %f";
-    in "comp_\$1";
+    out "compensation_current=%f";
+    in "compensation_current=%*f";
 }
 
-getAmplitude {
-    out "amp_\$1?";
-    in "amp_\$1 %f"
+getPower {
+    out "device_state?";
+    in "%{off|on}";
 }
 
-setAmplitude {
-    out "amp_\$1 %f";
-    in "amp_\$1";
+setPower {
+    out "device_state=%{off|on}";
+    in "device_state=%*{off|on}";
 }
 
-getConst {
-    out "const_\$1?";
-    in "const_\$1 %f";
+getParams {
+    out "flipper_params?";
+    in "%#s";
 }
 
-setConst {
-    out "const_\$1 %f";
-    in "const_\$1";
+setCurrent {
+    out "flipper_current=%f";
+    in "flipper_current=%*f";
 }
 
-getDt {
-    out "dt_\$1?";
-    in "dt_\$1 %f";
+setCurrentSteps {
+    out "flipper_steps=%(\$1:CURRENT_STEPS:SP)s";
+    in "flipper_steps=%*#s";
 }
 
-setDt {
-    out "dt_\$1 %f";
-    in "dt_\$1";
-}
-
-getFile {
-    InTerminator = "";
-    ReadTimeout = 250;
-    out "file_\$1?";
-    in "file_\$1 %.1/(.*):/";
+setCurrentAnalytical {
+    out "flipper_analytical=%(\$1:CURRENT_ANALYTICAL:SP)s";
+    in "flipper_analytical=%*#s";
 }
 
 setFile {
-    out "file_\$1 %s";
-    in "file_\$1";
+    out "flipper_filename=%(\$1:FILENAME:SP)s";
+    in "flipper_filename=%*#s";
 }
 
-getToggle {
-    out "toggle?";
-    in "toggle %i";
-}
-
-setToggle {
-    out "toggle %i";
-    in "toggle%*i";
+getMode {
+    out "mode?";
+    in "%{static|step|analytical|file}";
 }
