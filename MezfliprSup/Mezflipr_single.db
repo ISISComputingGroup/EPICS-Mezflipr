@@ -100,6 +100,8 @@ record(ao, "$(P)$(NAME):CURRENT:SP") {
 
 record(waveform, "$(P)$(NAME):CURRENT_STEPS:SP") {
     field(DESC, "$(NAME) Current steps SP")
+    field(INP, "@Mezflipr.proto setCurrentSteps $(PORT)")
+    field(DTYP, "stream")
     
     field(FTVL, "CHAR")
     field(NELM, "1024")
@@ -108,33 +110,25 @@ record(waveform, "$(P)$(NAME):CURRENT_STEPS:SP") {
     field(SIOL, "$(P)$(NAME):SIM:CURRENT_STEPS:SP")
     field(SDIS, "$(P)DISABLE")
     
-    field(FLNK, "$(P)$(NAME):CURRENT_STEPS:SP:_SEND")
-}
-
-record(bo, "$(P)$(NAME):CURRENT_STEPS:SP:_SEND") {
-    field(OUT, "@Mezflipr.proto setCurrentSteps($(P)$(NAME)) $(PORT)")
-    field(DTYP, "stream")
 }
 
 record(waveform, "$(P)$(NAME):CURRENT_ANALYTICAL:SP") {
     field(DESC, "$(NAME) Current steps SP")
     
+    field(INP, "@Mezflipr.proto setCurrentAnalytical $(PORT)")
+    field(DTYP, "stream")
     field(FTVL, "CHAR")
     field(NELM, "1024")
     
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:CURRENT_ANALYTICAL:SP")
     field(SDIS, "$(P)DISABLE")
-    field(FLNK, "$(P)$(NAME):CURRENT_ANALYTICAL:SP:_SEND")
-}
-
-record(bo, "$(P)$(NAME):CURRENT_ANALYTICAL:SP:_SEND") {
-    field(OUT, "@Mezflipr.proto setCurrentAnalytical($(P)$(NAME)) $(PORT)")
-    field(DTYP, "stream")
 }
 
 record(waveform, "$(P)$(NAME):FILENAME:SP") {
     field(DESC, "$(NAME) Filename SP")
+    field(INP, "@Mezflipr.proto setFile $(PORT)")
+    field(DTYP, "stream")
     
     field(FTVL, "CHAR")
     field(NELM, "1024")
@@ -143,14 +137,7 @@ record(waveform, "$(P)$(NAME):FILENAME:SP") {
     field(SIOL, "$(P)$(NAME):SIM:FILENAME:SP")
     field(SDIS, "$(P)DISABLE")
     
-    field(FLNK, "$(P)$(NAME):FILENAME:SP:_SEND")
 }
-
-record(bo, "$(P)$(NAME):FILENAME:SP:_SEND") {
-    field(OUT, "@Mezflipr.proto setFile($(P)$(NAME)) $(PORT)")
-    field(DTYP, "stream")
-}
-
 
 record(ao, "$(P)$(NAME):SIM:COMPENSATION") {}
 alias("$(P)$(NAME):SIM:COMPENSATION", "$(P)$(NAME):SIM:COMPENSATION:SP")
