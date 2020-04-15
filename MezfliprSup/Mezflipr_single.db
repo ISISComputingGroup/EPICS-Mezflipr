@@ -1,7 +1,7 @@
 record(ai, "$(P)$(NAME):COMPENSATION") {
     field(DESC, "$(NAME) Compensation")
     field(INP, "@Mezflipr.proto getCompensation $(PORT)")
-    field(SCAN, "1 second")
+    field(SCAN, "10 second")
     field(DTYP, "stream")
     field(PREC, "2")
     field(EGU, "A")
@@ -28,7 +28,7 @@ record(ao, "$(P)$(NAME):COMPENSATION:SP") {
 record(bi, "$(P)$(NAME):POWER") {
     field(DESC, "$(NAME) on/off")
     field(INP, "@Mezflipr.proto getPower $(PORT)")
-    field(SCAN, "1 second")
+    field(SCAN, "10 second")
     field(DTYP, "stream")
     field(ZNAM, "Off")
     field(ONAM, "On")
@@ -55,7 +55,7 @@ record(bo, "$(P)$(NAME):POWER:SP") {
 record(waveform, "$(P)$(NAME):PARAMS") {
     field(DESC, "$(NAME) Parameters")
     field(INP, "@Mezflipr.proto getParams $(PORT)")
-    field(SCAN, "1 second")
+    field(SCAN, "10 second")
     field(DTYP, "stream")
     info(interest, "HIGH")
     info(archive, "VAL")
@@ -71,7 +71,7 @@ record(waveform, "$(P)$(NAME):PARAMS") {
 record(mbbi, "$(P)$(NAME):MODE") {
     field(DESC, "$(NAME) Mode")
     field(INP, "@Mezflipr.proto getMode $(PORT)")
-    field(SCAN, "1 second")
+    field(SCAN, "10 second")
     field(DTYP, "stream")
     info(interest, "HIGH")
     info(archive, "VAL")

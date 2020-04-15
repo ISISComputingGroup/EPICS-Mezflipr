@@ -1,51 +1,63 @@
-Terminator = LF;
+OutTerminator = LF;
+
+Timeout = 100;
 
 getCompensation {
     out "compensation_current?";
-    in "%f";
+    in "%f" LF;
+    wait 100;
 }
 
 setCompensation {
     out "compensation_current=%f";
-    in "compensation_current=%*f";
+    in "compensation_current=%*f" LF;
+    wait 100;
 }
 
 getPower {
     out "device_state?";
-    in "%{off|on}";
+    in "%{off|on}" LF;
+    wait 100;
 }
 
 setPower {
     out "device_state=%{off|on}";
-    in "device_state=%*{off|on}";
+    in "device_state=%*{off|on}" LF;
+    wait 100;
 }
 
 getParams {
     out "flipper_params?";
     in "%#s";
+    wait 100;
 }
 
 setCurrent {
     out "flipper_current=%f";
-    in "flipper_current=%*f";
+    in "flipper_current=%*f" LF;
+    wait 100;
 }
 
 setCurrentSteps {
     out "flipper_steps=%(\$1:CURRENT_STEPS:SP)s";
-    in "flipper_steps=%*#s";
+    in "flipper_steps=%*#s" LF;
+    wait 100;
 }
 
 setCurrentAnalytical {
     out "flipper_analytical=%(\$1:CURRENT_ANALYTICAL:SP)s";
-    in "flipper_analytical=%*#s";
+    in "flipper_analytical=%*#s" LF;
+    wait 100;
 }
 
 setFile {
     out "flipper_filename=%(\$1:FILENAME:SP)s";
-    in "flipper_filename=%*#s";
+    in "flipper_filename=%*#s" LF;
+    wait 100;
 }
 
 getMode {
     out "mode?";
-    in "%{static|step|analytical|file}";
+    in "%{static|steps|analytical|file}" LF;
+    wait 100;
 }
