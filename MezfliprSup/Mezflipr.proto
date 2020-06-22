@@ -39,19 +39,19 @@ setCurrent {
 }
 
 setCurrentSteps {
-    out "flipper_steps=%(\$1:CURRENT_STEPS:SP)s";
+    out "flipper_steps=%s";
     in "flipper_steps=%*[^\n]" LF;
     wait 100;
 }
 
 setCurrentAnalytical {
-    out "flipper_analytical=%(\$1:CURRENT_ANALYTICAL:SP)s";
+    out "flipper_analytical=%s";
     in "flipper_analytical=%*[^\n]" LF;
     wait 100;
 }
 
 setFile {
-    out "flipper_filename=%(\$1:FILENAME:SP)s";
+    out "flipper_filename=%s";
     in "flipper_filename=%*[^\n]" LF;
     wait 100;
 }
