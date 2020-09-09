@@ -1,6 +1,6 @@
 record(ai, "$(P)$(NAME):COMPENSATION") {
     field(DESC, "$(NAME) Compensation")
-    field(INP, "@Mezflipr.proto getCompensation $(PORT)")
+    field(INP, "@Mezflipr_v2.proto getCompensation $(PORT)")
     field(SCAN, "10 second")
     field(DTYP, "stream")
     field(PREC, "2")
@@ -15,7 +15,7 @@ record(ai, "$(P)$(NAME):COMPENSATION") {
 
 record(ao, "$(P)$(NAME):COMPENSATION:SP") {
     field(DESC, "$(NAME) Compensation SP")
-    field(OUT, "@Mezflipr.proto setCompensation $(PORT)")
+    field(OUT, "@Mezflipr_v2.proto setCompensation $(PORT)")
     field(DTYP, "stream")
     field(PREC, "2")
     field(EGU, "A")
@@ -27,7 +27,7 @@ record(ao, "$(P)$(NAME):COMPENSATION:SP") {
 
 record(bi, "$(P)$(NAME):POWER") {
     field(DESC, "$(NAME) on/off")
-    field(INP, "@Mezflipr.proto getPower $(PORT)")
+    field(INP, "@Mezflipr_v2.proto getPower $(PORT)")
     field(SCAN, "10 second")
     field(DTYP, "stream")
     field(ZNAM, "Off")
@@ -42,7 +42,7 @@ record(bi, "$(P)$(NAME):POWER") {
 
 record(bo, "$(P)$(NAME):POWER:SP") {
     field(DESC, "$(NAME) on/off")
-    field(OUT, "@Mezflipr.proto setPower $(PORT)")
+    field(OUT, "@Mezflipr_v2.proto setPower $(PORT)")
     field(DTYP, "stream")
     field(ZNAM, "Off")
     field(ONAM, "On")
@@ -54,7 +54,7 @@ record(bo, "$(P)$(NAME):POWER:SP") {
 
 record(waveform, "$(P)$(NAME):PARAMS") {
     field(DESC, "$(NAME) Parameters")
-    field(INP, "@Mezflipr.proto getParams $(PORT)")
+    field(INP, "@Mezflipr_v2.proto getParams $(PORT)")
     field(SCAN, "10 second")
     field(DTYP, "stream")
     info(interest, "HIGH")
@@ -70,7 +70,7 @@ record(waveform, "$(P)$(NAME):PARAMS") {
 
 record(mbbi, "$(P)$(NAME):MODE") {
     field(DESC, "$(NAME) Mode")
-    field(INP, "@Mezflipr.proto getMode $(PORT)")
+    field(INP, "@Mezflipr_v2.proto getMode $(PORT)")
     field(SCAN, "10 second")
     field(DTYP, "stream")
     info(interest, "HIGH")
@@ -88,7 +88,7 @@ record(mbbi, "$(P)$(NAME):MODE") {
 
 record(ao, "$(P)$(NAME):CURRENT:SP") {
     field(DESC, "$(NAME) Current SP")
-    field(OUT, "@Mezflipr.proto setCurrent $(PORT)")
+    field(OUT, "@Mezflipr_v2.proto setCurrent $(PORT)")
     field(DTYP, "stream")
     field(PREC, "2")
     field(EGU, "A")
@@ -100,7 +100,7 @@ record(ao, "$(P)$(NAME):CURRENT:SP") {
 
 record(waveform, "$(P)$(NAME):CURRENT_STEPS:SP") {
     field(DESC, "$(NAME) Current steps SP")
-    field(INP, "@Mezflipr.proto setCurrentSteps $(PORT)")
+    field(INP, "@Mezflipr_v2.proto setCurrentSteps $(PORT)")
     field(DTYP, "stream")
     
     field(FTVL, "CHAR")
@@ -115,7 +115,7 @@ record(waveform, "$(P)$(NAME):CURRENT_STEPS:SP") {
 record(waveform, "$(P)$(NAME):CURRENT_ANALYTICAL:SP") {
     field(DESC, "$(NAME) Current steps SP")
     
-    field(INP, "@Mezflipr.proto setCurrentAnalytical $(PORT)")
+    field(INP, "@Mezflipr_v2.proto setCurrentAnalytical $(PORT)")
     field(DTYP, "stream")
     field(FTVL, "CHAR")
     field(NELM, "1024")
@@ -127,7 +127,7 @@ record(waveform, "$(P)$(NAME):CURRENT_ANALYTICAL:SP") {
 
 record(waveform, "$(P)$(NAME):FILENAME:SP") {
     field(DESC, "$(NAME) Filename SP")
-    field(INP, "@Mezflipr.proto setFile $(PORT)")
+    field(INP, "@Mezflipr_v2.proto setFile $(PORT)")
     field(DTYP, "stream")
     
     field(FTVL, "CHAR")
