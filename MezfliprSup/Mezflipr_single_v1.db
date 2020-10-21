@@ -3,7 +3,7 @@ record(ai, "$(P)$(NAME):COMPENSATION") {
     field(INP, "@Mezflipr_v1.proto getCompensation($(CODE)) $(PORT)")
     field(SCAN, "1 second")
     field(DTYP, "stream")
-    field(PREC, "2")
+    field(PREC, "5")
     info(interest, "HIGH")
     info(archive, "VAL")
     
@@ -16,7 +16,7 @@ record(ao, "$(P)$(NAME):COMPENSATION:SP") {
     field(DESC, "$(NAME) Compensation SP")
     field(OUT, "@Mezflipr_v1.proto setCompensation($(CODE)) $(PORT)")
     field(DTYP, "stream")
-    field(PREC, "2")
+    field(PREC, "5")
     
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:COMPENSATION:SP")
@@ -28,7 +28,7 @@ record(ai, "$(P)$(NAME):AMPLITUDE") {
     field(INP, "@Mezflipr_v1.proto getAmplitude($(CODE)) $(PORT)")
     field(SCAN, "1 second")
     field(DTYP, "stream")
-    field(PREC, "2")
+    field(PREC, "5")
     info(interest, "HIGH")
     info(archive, "VAL")
     
@@ -36,8 +36,8 @@ record(ai, "$(P)$(NAME):AMPLITUDE") {
     field(SIOL, "$(P)$(NAME):SIM:AMPLITUDE")
     field(SDIS, "$(P)DISABLE")
     
-    field(HIHI, "3")
-    field(LOLO, "-3")
+    field(HIHI, "4")
+    field(LOLO, "-4")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
@@ -46,10 +46,10 @@ record(ao, "$(P)$(NAME):AMPLITUDE:SP") {
     field(DESC, "$(NAME) Amplitude SP")
     field(OUT, "@Mezflipr_v1.proto setAmplitude($(CODE)) $(PORT)")
     field(DTYP, "stream")
-    field(PREC, "2")
+    field(PREC, "5")
     
-    field(DRVH, "3")
-    field(DRVL, "-3")
+    field(DRVH, "4")
+    field(DRVL, "-4")
     
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:AMPLITUDE:SP")
@@ -61,7 +61,7 @@ record(ai, "$(P)$(NAME):CONSTANT") {
     field(INP, "@Mezflipr_v1.proto getConst($(CODE)) $(PORT)")
     field(SCAN, "1 second")
     field(DTYP, "stream")
-    field(PREC, "2")
+    field(PREC, "5")
     info(interest, "HIGH")
     info(archive, "VAL")
     
@@ -74,7 +74,7 @@ record(ao, "$(P)$(NAME):CONSTANT:SP") {
     field(DESC, "$(NAME) Constant SP")
     field(OUT, "@Mezflipr_v1.proto setConst($(CODE)) $(PORT)")
     field(DTYP, "stream")
-    field(PREC, "2")
+    field(PREC, "5")
     
     field(SIML, "$(P)SIM")
     field(SIOL, "$(P)$(NAME):SIM:CONSTANT:SP")
@@ -86,7 +86,7 @@ record(ai, "$(P)$(NAME):DT") {
     field(INP, "@Mezflipr_v1.proto getDt($(CODE)) $(PORT)")
     field(SCAN, "1 second")
     field(DTYP, "stream")
-    field(PREC, "2")
+    field(PREC, "5")
     field(EGU, "us")
     info(interest, "HIGH")
     info(archive, "VAL")
@@ -103,7 +103,7 @@ record(ao, "$(P)$(NAME):DT:SP") {
     field(DESC, "$(NAME) Delta T SP")
     field(OUT, "@Mezflipr_v1.proto setDt($(CODE)) $(PORT)")
     field(DTYP, "stream")
-    field(PREC, "2")
+    field(PREC, "5")
     field(EGU, "us")
     
     field(SIML, "$(P)SIM")
